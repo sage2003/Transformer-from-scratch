@@ -8,4 +8,6 @@ To that end, I am learning how to build this transformer by following [Umar Jami
 
 If you are interested in learning the theoretical foundations of how a transformer actually works and want a detailed analysis of the original "Attention is All You Need" paper, you should definitely check out another one of his brilliant explainer/paper walkthrough videos: [Attention Is All You Need - Paper Walkthrough](https://youtu.be/bCz4OMemCcA?si=KcbXLFJs5kZ9fHZO).
 
+Now, full disclosure: I'm still wrapping my head around some of the deeper sorcery happening under the hood. To keep myself sane, I'll be treating this README as a live blog of my descent into the Transformer rabbit hole. Every time a new concept clicks or I gather some fresh intuition, I'll document it right here. Think of it as a trail of breadcrumbs for my future self, and hopefully, a useful cheat sheet for anyone else trying to decipher the more complicated concepts.
+
 Stay tuned for more updates as I build this out!
