@@ -16,7 +16,11 @@ Stay tuned for more updates!
 
 ## Layer Normalization
 
-Given an input vector $x \in \mathbb{R}^d$, layer normalization computes: $$LN(x) = \gamma\ \odot\ \dfrac{x - \mu}{\sigma + \epsilon} + \beta $$ where $\mu = \frac{1}{d}\ \sum_{i=1}^{d}x_i$ is the mean, $\sigma = \sqrt{\frac{1}{d}\ \sum_{i=1}^{d}(x_i-\mu)^2}$, $\gamma$ and $\beta$ are learned per-dimension scale and shift parameters, $\epsilon$ is a small constant for numerical stability, and $\odot$ denotes element-wise multiplication. 
+Given an input vector $x \in \mathbb{R}^d$, layer normalization computes: 
+
+$$LN(x) = \gamma\ \odot\ \dfrac{x - \mu}{\sigma + \epsilon} + \beta $$ 
+
+where $\mu = \frac{1}{d}\ \sum_{i=1}^{d}x_i$ is the mean, $\sigma = \sqrt{\frac{1}{d}\ \sum_{i=1}^{d}(x_i-\mu)^2}$, $\gamma$ and $\beta$ are learned per-dimension scale and shift parameters, $\epsilon$ is a small constant for numerical stability, and $\odot$ denotes element-wise multiplication. 
 
 The residual stream accumulates additive updates from every attention head and MLP across all layers. In a model with $L$ layers, each contributing an update of typical magnitude $\delta$, the residual stream magnitude grows roughly as $O(L \cdot \delta)$. Without normalization, this growth has cascading consequences: the inputs to later sublayers become large, the dot products in attention scores become large, and the softmax saturates, producing nearly one-hot attention patterns with vanishing gradients.
 
