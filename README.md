@@ -13,12 +13,17 @@ Honestly, I still don't know how half of this works. So, I'm using this file as 
 Stay tuned for more updates!
 
 ---
+## Formal Definition of _Residual Stream_
+
+The residual stream is the $d_{model}$ dimensional vector that flows through the transformer, starting as the token embedding and accumulating "**additive**" updates from each attention head and MLP layer.
+
+---
 
 ## Layer Normalization
 
 Given an input vector $x \in \mathbb{R}^d$, layer normalization computes: 
 
-$$LN(x) = \gamma\ \odot\ \dfrac{x - \mu}{\sigma + \epsilon} + \beta $$ 
+$$ LN(x) = \gamma\ \odot\ \dfrac{x - \mu}{\sigma + \epsilon} + \beta$$
 
 where $\mu = \frac{1}{d}\ \sum_{i=1}^{d}x_i$ is the mean, $\sigma = \sqrt{\frac{1}{d}\ \sum_{i=1}^{d}(x_i-\mu)^2}$, $\gamma$ and $\beta$ are learned per-dimension scale and shift parameters, $\epsilon$ is a small constant for numerical stability, and $\odot$ denotes element-wise multiplication. 
 
