@@ -63,11 +63,11 @@ Layer normalization creates three specific complications for mechanistic interpr
 
 | | QK Circuit (Where to Look) | OV Circuit (What to Move) |
 | :--- | :--- | :--- |
-| **Matrix** | $W^{h}_{QK} = W^{h}_{Q}(W^{h}_{K})^T$ | $W^{h}_{OV} = W^{h}_{V}W^{h}_{O}$ |
+| **Matrix** | $$W^{h}_{QK} = W^{h}_{Q}(W^{h}_{K})^T$$ | $$W^{h}_{OV} = W^{h}_{V}W^{h}_{O}$$ |
 | **Input** | Two token positions | A source token |
 | **Output** | An attention score | An update to the residual stream |
 | **Answers** | "Should I attend here?" | "What should I copy?" |
-| **End-to-end** | $W_{E} W^{h}_{QK} W^{T}_{E}$ | $W_{E} W^{h}_{OV} W_{U}$ |
+| **End-to-end** | $$W_{E} W^{h}_{QK} W^{T}_{E}$$ | $$W_{E} W^{h}_{OV} W_{U}$$ |
 | **Interpretation** | Token-to-token relevance | Token-to-logit effect |
 
 
