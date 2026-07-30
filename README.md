@@ -61,14 +61,47 @@ Layer normalization creates three specific complications for mechanistic interpr
 
 ## QK vs. OV Circuits
 
-| | QK Circuit (Where to Look) | OV Circuit (What to Move) |
-| :--- | :--- | :--- |
-| **Matrix** | $$W^{h}_{QK} = W^{h}_{Q}(W^{h}_{K})^T$$ | $$W^{h}_{OV} = W^{h}_{V}W^{h}_{O}$$ |
-| **Input** | Two token positions | A source token |
-| **Output** | An attention score | An update to the residual stream |
-| **Answers** | "Should I attend here?" | "What should I copy?" |
-| **End-to-end** | $$W_{E} W^{h}_{QK} W^{T}_{E}$$ | $$W_{E} W^{h}_{OV} W_{U}$$ |
-| **Interpretation** | Token-to-token relevance | Token-to-logit effect |
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>QK Circuit (Where to Look)</th>
+      <th>OV Circuit (What to Move)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Matrix</strong></td>
+      <td>$W^{h}_{QK} = W^{h}_{Q}(W^{h}_{K})^T$</td>
+      <td>$W^{h}_{OV} = W^{h}_{V}W^{h}_{O}$</td>
+    </tr>
+    <tr>
+      <td><strong>Input</strong></td>
+      <td>Two token positions</td>
+      <td>A source token</td>
+    </tr>
+    <tr>
+      <td><strong>Output</strong></td>
+      <td>An attention score</td>
+      <td>An update to the residual stream</td>
+    </tr>
+    <tr>
+      <td><strong>Answers</strong></td>
+      <td>"Should I attend here?"</td>
+      <td>"What should I copy?"</td>
+    </tr>
+    <tr>
+      <td><strong>End-to-end</strong></td>
+      <td>$W_{E} W^{h}_{QK} W^{T}_{E}$</td>
+      <td>$W_{E} W^{h}_{OV} W_{U}$</td>
+    </tr>
+    <tr>
+      <td><strong>Interpretation</strong></td>
+      <td>Token-to-token relevance</td>
+      <td>Token-to-logit effect</td>
+    </tr>
+  </tbody>
+</table>
 
 
 
