@@ -10,6 +10,8 @@ If you are interested in learning the theoretical foundations of how a transform
 
 Honestly, I still don't know how half of this works. So, I'm using this file as a live diary while I figure it out. Every time I learn something new, I'll write it here. It's mostly just notes so I don't forget what I did, but hopefully it helps you skip the hard parts too.
 
+<u>NOTE</u>: The code is not at all optimized. It is for me to understand how a transformer works and so the main focus is to make the code as comprehensible as possible, not to write production-ready code.
+
 Stay tuned for more updates!
 
 ---
