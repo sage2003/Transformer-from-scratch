@@ -6,7 +6,7 @@ As a massive supporter of open source, free education, and a proud graduate of t
 
 To that end, I am learning how to build this transformer by following [Umar Jamil's fantastic YouTube tutorial](https://www.youtube.com/watch?v=ISNdQcPhsts).
 
-If you are interested in learning the theoretical foundations of how a transformer actually works and want a detailed analysis of the original "Attention is All You Need" paper, you should definitely check out another one of his brilliant explainer/paper walkthrough videos: [Attention Is All You Need - Paper Walkthrough](https://youtu.be/bCz4OMemCcA?si=KcbXLFJs5kZ9fHZO).
+If you are interested in learning the theoretical foundations of how a transformer actually works and want a detailed analysis of the original "Attention is All You Need" paper, you should definitely check out another one of his brilliant explainer/paper walkthrough videos: [Attention Is All You Need - Paper Walkthrough](https://youtu.be/bCz4OMemCcA?si=KcbXLFJs5kZ9fHZO). If you're interested in learning Mechanistic Interpretability like myself, do make sure to check out [A Mathematical Framework for Transformer Circuits](https://transformer-circuits.pub/2021/framework/index.html)
 
 Honestly, I still don't know how half of this works. So, I'm using this file as a live diary while I figure it out. Every time I learn something new, I'll write it here. It's mostly just notes so I don't forget what I did, but hopefully it helps you skip the hard parts too.
 
