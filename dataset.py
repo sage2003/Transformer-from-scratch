@@ -1,7 +1,9 @@
-import torchimport torch.nn as nn
-import torch.utils.data import Dataset
+import torch 
+import torch.nn as nn
+from torch.utils.data import Dataset
+from typing import Any
 
-classBilingualDataset(Dataset):
+class BilingualDataset(Dataset):
 
     def __init__(self, ds, tokenizer_src, tokenizer_tgt, src_lang, tgt_lang, seq_len) -> None:
         super().__init__()
@@ -13,14 +15,14 @@ classBilingualDataset(Dataset):
         self.tgt_lang = tgt_lang
         self.seq_len = seq_len
 
-        self.sos_token = torch.Tensor([tokenizer_src.token_to_id('[SOS]')], dtype=torch.int64)
-        self.eos_token = torch.Tensor([tokenizer_src.token_to_id('[EOS]')], dtype=torch.int64)
-        self.pad_token = torch.Tensor([tokenizer_src.token_to_id('[PAD]')], dtype=torch.int64)
+        self.sos_token = torch.tensor([tokenizer_src.token_to_id('[SOS]')], dtype=torch.int64)
+        self.eos_token = torch.tensor([tokenizer_src.token_to_id('[EOS]')], dtype=torch.int64)
+        self.pad_token = torch.tensor([tokenizer_src.token_to_id('[PAD]')], dtype=torch.int64)
 
     def __len__(self):
         return len(self.ds)
 
-    def __getitem__(self, index: Any) -> Any:
+    def __getitem__(self, index: int) -> Any:
         src_target_pair = self.ds[index]
         src_text = src_target_pair['translation'][self.src_lang]
         tgt_text = src_target_pair['translation'][self.tgt_lang]
@@ -48,7 +50,7 @@ classBilingualDataset(Dataset):
         label = torch.cat([
             torch.tensor(dec_input_tokens, dtype=torch.int64),
             self.eos_token,
-            self.pad_token.repeat(enc_num_padding_tokens)
+            self.pad_token.repeat(dec_num_padding_tokens)
         ])
 
         assert encoder_input.size(0) == self.seq_len
@@ -65,9 +67,9 @@ classBilingualDataset(Dataset):
             'tgt_text': tgt_text
         }
 
-    def causal_mask(size):
-        mask = torch.triu(torch.ones(1, size, size), diagonal=1).type(torch.int)
-        return mask == 0 # This returns a tensor of 1s where the mask should be applied and 0s where it should not (so, 1's above the diagonal)
+def causal_mask(size):
+    mask = torch.triu(torch.ones(1, size, size), diagonal=1).type(torch.int)
+    return mask == 0 # This returns a tensor of 1s where the mask should be applied and 0s where it should not (so, 1's above the diagonal)
 
         
         
